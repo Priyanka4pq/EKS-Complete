@@ -80,7 +80,7 @@ eksctl create cluster --name=my-eks \
 
 eksctl utils associate-iam-oidc-provider \
     --region ap-south-1 \
-    --cluster my-eks22 \
+    --cluster my-eks \
     --approve
 
 eksctl create nodegroup --cluster=my-eks \
