@@ -1,7 +1,3 @@
-Quick heads-up before the doc: **EKS itself is not covered by AWS Free Tier** — the control plane costs ~$0.10/hour regardless of account type, and worker nodes (EC2) bill normally too. On free tier you'd still be charged for this cluster. I've kept your original instance type but flagged this below, and reduced node count to minimize cost. If cost is a concern, consider `t3.micro`/`t3.small` (Free Tier eligible EC2, though EKS control plane still isn't) and a single node instead of 2–4.
-
-Here's the cleaned-up version:
-
 ---
 
 # EKS Cluster Setup (AWS Free-Tier Account)
@@ -78,7 +74,7 @@ eksctl version
 ## 5. Create the EKS Cluster (cost-minimized for testing)
 
 ```bash
-eksctl create cluster --name=my-eks22 \
+eksctl create cluster --name=my-eks \
                       --region=ap-south-1 \
                       --zones=ap-south-1a,ap-south-1b \
                       --version=1.30 \
@@ -89,7 +85,7 @@ eksctl utils associate-iam-oidc-provider \
     --cluster my-eks22 \
     --approve
 
-eksctl create nodegroup --cluster=my-eks22 \
+eksctl create nodegroup --cluster=my-eks \
                        --region=ap-south-1 \
                        --name=node2 \
                        --node-type=t3.small \
