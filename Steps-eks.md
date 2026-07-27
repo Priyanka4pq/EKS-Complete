@@ -1,5 +1,3 @@
----
-
 # EKS Cluster Setup (AWS Free-Tier Account)
 
 > ⚠️ **Cost note:** EKS control plane and worker nodes are **not** Free Tier eligible. Running this will incur charges (~$0.10/hr for the cluster + EC2 costs for nodes). Delete the cluster when done (`eksctl delete cluster --name=my-eks22 --region=ap-south-1`) to avoid ongoing charges.
