@@ -1,24 +1,30 @@
 # Install Helm on Ubuntu
 
-Official installer script method (recommended — always fetches the latest stable version):
-
-\`\`\`bash
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
-chmod 700 get_helm.sh
-./get_helm.sh
-\`\`\`
-
-Verify installation:
-
-\`\`\`bash
-helm version
-\`\`\`
+A quick reference for installing [Helm](https://helm.sh/) (Kubernetes package manager) on Ubuntu.
 
 ---
 
-## Alternative: Apt (Debian/Ubuntu)
+## Method 1: Official Installer Script (Recommended)
 
-\`\`\`bash
+Always fetches the latest stable release.
+
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
+Verify installation:
+
+```bash
+helm version
+```
+
+---
+
+## Method 2: Apt (Debian/Ubuntu)
+
+```bash
 sudo apt-get install curl gpg apt-transport-https --yes
 
 curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey > "${TMPDIR:-/tmp}/helm.gpg"
@@ -28,12 +34,32 @@ echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.co
 
 sudo apt-get update
 sudo apt-get install helm
-\`\`\`
+```
 
 ---
 
-## Alternative: Snap
+## Method 3: Snap
 
-\`\`\`bash
+```bash
 sudo snap install helm --classic
-\`\`\`
+```
+
+---
+
+## Uninstall / Cleanup
+
+Helm stores its files in these default locations on Linux:
+
+| Type | Path |
+|------|------|
+| Cache | `$HOME/.cache/helm` |
+| Config | `$HOME/.config/helm` |
+| Data | `$HOME/.local/share/helm` |
+
+To fully remove Helm, delete the binary along with the above folders.
+
+---
+
+## Reference
+
+- Official docs: https://helm.sh/docs/intro/install/
