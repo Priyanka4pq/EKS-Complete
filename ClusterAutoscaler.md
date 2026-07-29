@@ -75,7 +75,7 @@ eksctl create iamserviceaccount \
   --region ap-south-1 \
   --namespace kube-system \
   --name cluster-autoscaler \
-  --attach-policy-arn arn:aws:iam::930171196802:policy/AmazonEKSClusterAutoscalerPolicy \
+  --attach-policy-arn arn:aws:iam::970009400005:policy/AmazonEKSClusterAutoscalerPolicy \
   --approve \
   --override-existing-serviceaccounts
 ```
